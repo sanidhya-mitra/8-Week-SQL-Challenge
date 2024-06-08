@@ -14,14 +14,14 @@
 
 
 <h1><a name="introduction">Introduction:</a></h1>
-<p> Danny pursues his passion for Japanese cuisine by opening "Danny's Diner," a delightful restaurant that serves sushi, curry, and ramen in early 2021. However, due to a lack of data analysis experience, the restaurant fails to make informed business decisions using the minimal data obtained during its first few months. Danny's Diner wants help using this data successfully to keep the restaurant growing.</p>
+<p> Danny pursues his passion for Japanese cuisine by opening "Danny's Diner," a delightful restaurant that serves sushi, curry, and ramen in early 2021. However, due to a lack of data analysis experience, the restaurant fails to make informed business decisions using the minimal data obtained during its first few months. Danny's Diner wants help using this data to keep the restaurant growing.</p>
 
 <h1><a name="problemstatement">Problem Statement:</a></h1>
 <p>Danny intends to use consumer data to obtain useful insights about their visit patterns, purchasing habits, and preferred menu options. By developing a stronger relationship with his consumers, he can create a more personalized experience for his loyal customers.
 
-He intends to use this information to make more informed judgments about expanding the current customer loyalty program. Danny also requests assistance creating simple datasets so that his staff can easily inspect the data without SQL experience.
+He intends to use this information to make more informed judgments about expanding the current customer loyalty program. Danny also requests assistance creating simple datasets so his staff can easily inspect the data without SQL experience.
 
-Due to privacy concerns, he has provided a sample of his whole customer data, hoping that it will be sufficient for you to develop completely working SQL queries to answer his inquiries.
+Due to privacy concerns, he has provided a sample of his whole customer data, hoping that it will be sufficient for us to develop completely working SQL queries to answer his inquiries.
 
 The case study revolves around three key datasets:
 - Sales
@@ -47,7 +47,16 @@ GROUP BY S.customer_id
 ORDER BY customer_id
 ```
 <h6>Answer:</h6>
-<img width="200" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_1.png">
+<img width="200" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_1.png"><br>
+
+<h6>Logic: </h6>
+<ul>
+  <li>The SQL query retrieves the <code>customer_id</code> and calculates the total amount spent (<code>total_amnt</code>) by each customer at the restaurant.</li>
+  <li>It combines data from the <code>sales</code> and <code>menu</code> tables based on matching <code>product_id</code>.</li>
+  <li>The results are grouped by <code>customer_id</code>.</li>
+  <li>The query then calculates the total sum of <code>price</code> for each group of sales records with the same <code>customer_id</code>.</li>
+  <li>Finally, the results are sorted in ascending order based on the <code>customer_id</code>.</li>
+</ul>
 
 <li><h5></h5>How many days has each customer visited the restaurant?</li></h5>
 <br>
@@ -57,7 +66,16 @@ SELECT customer_id, COUNT(DISTINCT order_date) AS 'No. of Days' FROM sales
 GROUP BY customer_id;
 ```
 <h6>Answer: </h6>
-<img width="200" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_2.png">
+<img width="200" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_2.png"><br>
+
+<h6>Logic: </h6>
+<ul>
+  <li>The SQL query selects the <code>customer_id</code> and counts the number of distinct order dates (<code>No. of Days</code>) for each customer.</li>
+  <li>It retrieves data from the <code>sales</code> table.</li>
+  <li>The results are grouped by <code>customer_id</code>.</li>
+  <li>The <code>COUNT(DISTINCT order_date)</code> function calculates the number of unique order dates for each customer.</li>
+  <li>Finally, the query presents the total number of unique order dates as <code>No. of Days</code> for each customer.</li>
+</ul>
 
 <li><h5>What was the first item from the menu purchased by each customer?</li></h5>
   
@@ -74,7 +92,19 @@ FROM CTE
 WHERE rank_num = 1;
 ```
 <h6>Answer: </h6>
-<img width="200" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_3.png">
+<img width="200" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_3.png"><br>
+
+<h6>Logic: </h6>
+<ul>
+  <li>The SQL query uses a Common Table Expression (CTE) named <code>CTE</code> to generate a temporary result set.</li>
+  <li>Within the CTE, it selects the <code>customer_id</code>, assigns a dense rank to each row based on the order date for each customer, and retrieves the corresponding <code>product_name</code> from the <code>menu</code> table.</li>
+  <li>The <code>sales</code> table is joined with the <code>menu</code> table on matching <code>product_id</code>.</li>
+  <li>The DENSE_RANK() function assigns a rank to each row within the partition of each <code>customer_id</code> based on the <code>order_date</code> in ascending order.</li>
+  <li>Each <code>customer_id</code> has its partition and separate ranks based on the order dates of their purchases.</li>
+  <li>Next, the main query selects the <code>customer_id</code> and corresponding <code>product_name</code> from the CTE.</li>
+  <li>It filters the results and only includes rows where the rank <code>rn</code> is equal to 1, which means the earliest purchase for each <code>customer_id</code>.</li>
+  <li>As a result, the query returns the first purchased product for each customer.</li>
+</ul>
 
 <li><h5>What is the most purchased item on the menu and how many times was it purchased by all customers?</h5></li>
 
@@ -87,7 +117,18 @@ ORDER BY most_ordered DESC
 LIMIT 1; 
 ```
 <h6>Answer: </h6>
-<img width="200" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_4.png">
+<img width="200" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_4.png"><br>
+
+<h6>Logic: </h6>
+<ul>
+  <li>The SQL query selects the <code>product_name</code> from the <code>menu</code> table and counts the number of times each product was ordered (<code>most_ordered</code>).</li>
+  <li>It retrieves data from the <code>Sales</code> table and joins it with the <code>menu</code> table based on matching <code>product_id</code>.</li>
+  <li>The results are grouped by <code>product_name</code>.</li>
+  <li>The <code>COUNT(S.product_id)</code> function calculates the number of occurrences of each <code>product_id</code> in the <code>Sales</code> table.</li>
+  <li>The query then presents the <code>product_name</code> and its corresponding count as <code>most_ordered</code> for each product.</li>
+  <li>Next, the results are sorted in descending order based on the <code>most_ordered</code> column, so the most ordered product appears first.</li>
+  <li>The <code>LIMIT 1</code> clause is used to restrict the result to only one row, effectively showing the most ordered product.</li>
+</ul>
 
 <li><h5>Which item was the most popular for each customer?</h5></li>
 
@@ -107,6 +148,18 @@ WHERE rnk = 1;
 <h6>Answer: </h6>
 <img width="300" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_5.png">
 
+<h6>Logic:</h6>
+<ul>
+  <li>The SQL query selects the <code>customer_id</code>, <code>product_name</code>, and counts the occurrences of each product for every customer, aliased as <code>product_count</code>.</li>
+  <li>It employs a window function <code>DENSE_RANK()</code> partitioned by <code>customer_id</code> to assign ranks to products based on their counts within each customer group.</li>
+  <li>The query retrieves data from the <code>sales</code> table and joins it with the <code>menu</code> table based on matching <code>product_id</code>.</li>
+  <li>The results are grouped by <code>customer_id</code> and <code>product_name</code>.</li>
+  <li>The <code>COUNT(product_name)</code> function calculates the number of occurrences of each product for each customer.</li>
+  <li>The window function <code>DENSE_RANK()</code> assigns a rank to each product based on its count within each customer group, ordered by descending count.</li>
+  <li>Finally, the outer query filters the results to include only rows where the rank is 1, indicating the most ordered product for each customer.</li>
+</ul>
+
+
 <li><h5></h5>Which item was purchased first by the customer after they became a member?</h5></li>
 
 ```sql
@@ -118,7 +171,16 @@ WHERE order_date > join_date
 ORDER BY customer_id;
 ```
 <h6>Answer: </h6>
-<img width="300" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_6.png">
+<img width="300" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_6.png"><br>
+
+<h6>Logic:</h6>
+<ul>
+  <li>The SQL query selects <code>customer_id</code>, <code>join_date</code>, <code>order_date</code>, and <code>product_name</code> from the <code>sales</code> table.</li>
+  <li>It joins the <code>sales</code> table with the <code>members</code> table based on matching <code>customer_id</code> to retrieve the join date of each customer.</li>
+  <li>It further joins the <code>sales</code> table with the <code>menu</code> table based on matching <code>product_id</code> to get the product name associated with each sale.</li>
+  <li>The <code>WHERE</code> clause filters the results to include only rows where the order date is after the join date, ensuring that only orders placed after joining are included.</li>
+  <li>The results are ordered by <code>customer_id</code> to organize the data in ascending order of customer IDs.</li>
+</ul>
 
 <li><h5>Which item was purchased just before the customer became a member?</h5></li>
 
@@ -135,7 +197,19 @@ SELECT * FROM (
 WHERE rnk = 1;
 ```
 <h6>Answer: </h6>
-<img width="300" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_7.png">
+<img width="300" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_7.png"><br>
+
+<h6>Logic:</h6>
+<ul>
+  <li>The SQL query selects distinct <code>customer_id</code>, <code>join_date</code>, <code>order_date</code>, and <code>product_name</code> from the sales table.</li>
+  <li>It employs a window function <code>DENSE_RANK()</code> partitioned by <code>customer_id</code> to assign ranks to orders based on their order dates within each customer group.</li>
+  <li>The query joins the <code>sales</code> table with the <code>members</code> table based on matching <code>customer_id</code> to retrieve the join date of each customer.</li>
+  <li>It further joins the <code>sales</code> table with the <code>menu</code> table based on matching <code>product_id</code> to get the product name associated with each sale.</li>
+  <li>The <code>WHERE</code> clause filters the results to include only rows where the order date is before the join date, indicating the first order placed by each customer after joining.</li>
+  <li>The inner query results are ordered by <code>customer_id</code> to organize the data in ascending order of customer IDs.</li>
+  <li>Finally, the outer query filters the results to include only rows where the rank is 1, indicating the first order placed by each customer after joining.</li>
+</ul>
+
 
 <li><h5>What is the total items and amount spent for each member before they became a member?</h5></li>
 
@@ -151,7 +225,18 @@ GROUP BY s.customer_id
 ORDER BY s.customer_id;
 ```
 <h6>Answer: </h6>
-<img width="300" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_8.png">
+<img width="300" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_8.png"><br>
+
+<h6>Logic:</h6>
+<ul>
+  <li>The SQL query selects <code>customer_id</code>, counts the number of distinct <code>product_name</code>s purchased by each customer (<code>total_products</code>), and sums the prices of all purchased products (<code>total_price</code>) from the sales table.</li>
+  <li>It joins the <code>sales</code> table with the <code>members</code> table based on matching <code>customer_id</code> to retrieve the join date of each customer.</li>
+  <li>Further, it joins the <code>sales</code> table with the <code>menu</code> table based on matching <code>product_id</code> to get the price associated with each product sold.</li>
+  <li>The <code>WHERE</code> clause filters the results to include only rows where the order date is before the join date, indicating purchases made before the customer joined.</li>
+  <li>The results are grouped by <code>customer_id</code> to calculate aggregate values for each customer.</li>
+  <li>Finally, the results are ordered by <code>customer_id</code> to organize the data in ascending order of customer IDs.</li>
+</ul>
+
 
 <li><h5>If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?</h5></li>
 
@@ -173,7 +258,23 @@ GROUP BY customer_id
 ORDER BY customer_id;
 ```
 <h6>Answer: </h6>
-<img width="200" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_9.png">
+<img width="200" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_9.png"><br>
+
+<h6>Logic:</h6>
+<ul>
+  <li>The SQL query calculates the total points earned by each customer based on their purchases.</li>
+  <li>It first selects <code>customer_id</code> and the sum of points earned (<code>total_points</code>).</li>
+  <li>It employs a subquery to calculate the points earned for each purchase. Inside the subquery, it selects <code>customer_id</code>, <code>product_name</code>, <code>price</code>, and calculates the points based on the product's name:
+    <ul>
+      <li>If the product is 'sushi', the points are calculated by multiplying the price by 20.</li>
+      <li>For all other products, the points are calculated by multiplying the price by 10.</li>
+    </ul>
+  </li>
+  <li>The results of the subquery are then grouped by <code>customer_id</code>.</li>
+  <li>Finally, the outer query calculates the sum of points for each customer by summing up the points earned from all their purchases.</li>
+  <li>The results are then ordered by <code>customer_id</code> to organize the data in ascending order of customer IDs.</li>
+</ul>
+
 
 <li><h5>In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customers A and B have at the end of January?</h5></li>
 
@@ -201,7 +302,23 @@ GROUP BY s.customer_id
 ORDER BY s.customer_id;
 ```
 <h6>Answer: </h6>
-<img width="200" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_10.png">
+<img width="200" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_10.png"><br>
+
+<h6>Logic:</h6>
+<ul>
+  <li>The SQL query calculates the total points earned by each customer based on their purchases, considering different conditions for point calculation.</li>
+  <li>It first creates a common table expression (CTE) named <code>dates_cte</code> to calculate some date-related values for each customer, including their join date, a valid date 6 days after joining, and the last day of the month of joining.</li>
+  <li>The main query selects <code>customer_id</code> and calculates the total points earned (<code>points</code>) for each customer.</li>
+  <li>It uses a <code>CASE</code> statement to determine the points earned for each purchase, considering the following conditions:
+    <ul>
+      <li>If the product purchased is 'sushi' or the order date is within 6 days of joining, the points are calculated by multiplying the price by 20.</li>
+      <li>For all other products or purchases made beyond the first 6 days after joining, the points are calculated by multiplying the price by 10.</li>
+    </ul>
+  </li>
+  <li>The results are grouped by <code>customer_id</code> to calculate the total points earned by each customer.</li>
+  <li>Finally, the results are ordered by <code>customer_id</code> to organize the data in ascending order of customer IDs.</li>
+</ul>
+
 
 </ol>
 
@@ -223,7 +340,17 @@ SELECT s.customer_id, order_date, product_name, price,
 ```
 
 <h6>Answer:</h6>
-<img width="400" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_11.png">
+<img width="400" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_11.png"><br>
+
+<h6>Logic:</h6>
+<ul>
+  <li>The SQL query retrieves details about sales transactions, including customer ID, order date, product name, price, and a flag indicating whether the customer was a member at the time of purchase.</li>
+  <li>It utilizes a <code>CASE</code> statement to determine whether the customer was a member (<code>'Y'</code>) or not (<code>'N'</code>) at the time of the purchase, based on the comparison between the customer's join date and the order date.</li>
+  <li>The <code>LEFT JOIN</code> with the <code>members</code> table ensures that all sales transactions are included in the result set, even if there is no corresponding entry in the <code>members</code> table for a particular customer.</li>
+  <li>It then joins the <code>sales</code> table with the <code>menu</code> table based on matching <code>product_id</code> to retrieve details about the purchased products.</li>
+  <li>The results are ordered by <code>customer_id</code> to organize the data in ascending order of customer IDs.</li>
+</ul>
+
 
 
 <li><h5>Rank All The Things</li></h5>
@@ -248,7 +375,18 @@ FROM customers_data;
 ```
 
 <h6>Answer:</h6>
-<img width="400" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_12.png">
+<img width="400" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_12.png"><br>
+
+<h6>Logic:</h6>
+<ul>
+  <li>The SQL query utilizes a common table expression (CTE) named <code>customers_data</code> to gather information about sales transactions, including customer ID, order date, product name, price, and a flag indicating the membership status at the time of purchase.</li>
+  <li>Inside the CTE, a <code>CASE</code> statement is used to determine the membership status (<code>'Y'</code> for a member, <code>'N'</code> otherwise) based on the comparison between the customer's join date and the order date.</li>
+  <li>The <code>LEFT JOIN</code> with the <code>members</code> table ensures that all sales transactions are included in the result set, even if there is no corresponding entry in the <code>members</code> table for a particular customer.</li>
+  <li>The <code>INNER JOIN</code> with the <code>menu</code> table retrieves details about the purchased products based on matching <code>product_id</code>.</li>
+  <li>The main query selects <code>customer_id</code>, <code>order_date</code>, <code>product_name</code>, <code>price</code>, <code>member_status</code> as <code>member</code>, and assigns a ranking to each transaction for members only using the <code>RANK()</code> window function partitioned by <code>customer_id</code> and <code>member_status</code>.</li>
+  <li>For non-members, the ranking is set to <code>NULL</code>.</li>
+</ul>
+
 
 </ol>
 
