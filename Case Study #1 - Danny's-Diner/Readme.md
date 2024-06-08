@@ -35,7 +35,6 @@ The case study revolves around three key datasets:
 
 <h1><a name="casestudyquestionsandsolutions">Case Study Questions & Solutions:</a></h1>
 
-<ol>
 
 <h5>1. What is the total amount each customer spent at the restaurant?</h5>
   
@@ -377,9 +376,6 @@ FROM customers_data;
   <li>The main query selects <code>customer_id</code>, <code>order_date</code>, <code>product_name</code>, <code>price</code>, <code>member_status</code> as <code>member</code>, and assigns a ranking to each transaction for members only using the <code>RANK()</code> window function partitioned by <code>customer_id</code> and <code>member_status</code>.</li>
   <li>For non-members, the ranking is set to <code>NULL</code>.</li>
 </ul>
-
-
-</ol>
 
   <h1><a name="keyinsights">Key Insights:</a></h1>
 
