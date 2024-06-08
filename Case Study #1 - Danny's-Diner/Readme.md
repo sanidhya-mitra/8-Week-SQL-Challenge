@@ -46,7 +46,7 @@ GROUP BY S.customer_id
 ORDER BY customer_id
 ```
 <h6>Answer:</h6>
-<img width="200" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_1.png"><br>
+<img width="200" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_1.png">
 
 <h6>Logic: </h6>
 <ul>
@@ -64,7 +64,7 @@ SELECT customer_id, COUNT(DISTINCT order_date) AS 'No. of Days' FROM sales
 GROUP BY customer_id;
 ```
 <h6>Answer: </h6>
-<img width="200" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_2.png"><br>
+<img width="200" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_2.png">
 
 <h6>Logic: </h6>
 <ul>
@@ -90,7 +90,7 @@ FROM CTE
 WHERE rank_num = 1;
 ```
 <h6>Answer: </h6>
-<img width="200" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_3.png"><br>
+<img width="200" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_3.png">
 
 <h6>Logic: </h6>
 <ul>
@@ -115,7 +115,7 @@ ORDER BY most_ordered DESC
 LIMIT 1; 
 ```
 <h6>Answer: </h6>
-<img width="200" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_4.png"><br>
+<img width="200" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_4.png">
 
 <h6>Logic: </h6>
 <ul>
@@ -168,7 +168,7 @@ WHERE order_date > join_date
 ORDER BY customer_id;
 ```
 <h6>Answer: </h6>
-<img width="300" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_6.png"><br>
+<img width="300" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_6.png">
 
 <h6>Logic:</h6>
 <ul>
@@ -194,7 +194,7 @@ SELECT * FROM (
 WHERE rnk = 1;
 ```
 <h6>Answer: </h6>
-<img width="300" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_7.png"><br>
+<img width="300" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_7.png">
 
 <h6>Logic:</h6>
 <ul>
@@ -221,7 +221,7 @@ GROUP BY s.customer_id
 ORDER BY s.customer_id;
 ```
 <h6>Answer: </h6>
-<img width="300" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_8.png"><br>
+<img width="300" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_8.png">
 
 <h6>Logic:</h6>
 <ul>
@@ -253,7 +253,7 @@ GROUP BY customer_id
 ORDER BY customer_id;
 ```
 <h6>Answer: </h6>
-<img width="200" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_9.png"><br>
+<img width="200" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_9.png">
 
 <h6>Logic:</h6>
 <ul>
@@ -296,7 +296,7 @@ GROUP BY s.customer_id
 ORDER BY s.customer_id;
 ```
 <h6>Answer: </h6>
-<img width="200" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_10.png"><br>
+<img width="200" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_10.png">
 
 <h6>Logic:</h6>
 <ul>
@@ -332,7 +332,7 @@ SELECT s.customer_id, order_date, product_name, price,
 ```
 
 <h6>Answer:</h6>
-<img width="400" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_11.png"><br>
+<img width="400" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_11.png">
 
 <h6>Logic:</h6>
 <ul>
@@ -365,7 +365,7 @@ FROM customers_data;
 ```
 
 <h6>Answer:</h6>
-<img width="400" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_12.png"><br>
+<img width="400" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_12.png">
 
 <h6>Logic:</h6>
 <ul>
@@ -397,7 +397,7 @@ FROM customers_data;
 
 - **Data Visualization:** Creating data and insight-based visuals can help Danny better identify patterns and make data-driven decisions.
 
-- **Customer Segmentation:** Danny is able to segment his clientele and adjust his marketing tactics by examining their purchasing patterns.
+- **Customer Segmentation:** Danny can segment his clientele and adjust his marketing tactics by examining their purchasing patterns.
 
 - **Expanding Membership:** Danny may leverage the program's success by using the data's insights to improve his loyalty program and draw in new participants.
 
