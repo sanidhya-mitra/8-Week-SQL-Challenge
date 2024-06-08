@@ -37,7 +37,7 @@ The case study revolves around three key datasets:
 
 <ol>
 
-<li><h5>What is the total amount each customer spent at the restaurant?</li></h5>
+<h5>1. What is the total amount each customer spent at the restaurant?</h5>
   
 ```sql
 SELECT S.customer_id, SUM(M.price) AS total_amnt
@@ -56,10 +56,9 @@ ORDER BY customer_id
   <li>The results are grouped by <code>customer_id</code>.</li>
   <li>The query then calculates the total sum of <code>price</code> for each group of sales records with the same <code>customer_id</code>.</li>
   <li>Finally, the results are sorted in ascending order based on the <code>customer_id</code>.</li>
-</ul>
+</ul><br>
 
-<li><h5></h5>How many days has each customer visited the restaurant?</li></h5>
-<br>
+<h5>2. How many days has each customer visited the restaurant?</h5>
 
 ```sql
 SELECT customer_id, COUNT(DISTINCT order_date) AS 'No. of Days' FROM sales
@@ -75,9 +74,9 @@ GROUP BY customer_id;
   <li>The results are grouped by <code>customer_id</code>.</li>
   <li>The <code>COUNT(DISTINCT order_date)</code> function calculates the number of unique order dates for each customer.</li>
   <li>Finally, the query presents the total number of unique order dates as <code>No. of Days</code> for each customer.</li>
-</ul>
+</ul><br>
 
-<li><h5>What was the first item from the menu purchased by each customer?</li></h5>
+<h5>3. What was the first item from the menu purchased by each customer?</h5>
   
 ```sql
 WITH CTE AS (
@@ -104,9 +103,9 @@ WHERE rank_num = 1;
   <li>Next, the main query selects the <code>customer_id</code> and corresponding <code>product_name</code> from the CTE.</li>
   <li>It filters the results and only includes rows where the rank <code>rn</code> is equal to 1, which means the earliest purchase for each <code>customer_id</code>.</li>
   <li>As a result, the query returns the first purchased product for each customer.</li>
-</ul>
+</ul><br>
 
-<li><h5>What is the most purchased item on the menu and how many times was it purchased by all customers?</h5></li>
+<h5>4. What is the most purchased item on the menu and how many times was it purchased by all customers?</h5>
 
 ```sql
 SELECT m.product_name, COUNT(s.product_id) AS most_ordered
@@ -128,9 +127,9 @@ LIMIT 1;
   <li>The query then presents the <code>product_name</code> and its corresponding count as <code>most_ordered</code> for each product.</li>
   <li>Next, the results are sorted in descending order based on the <code>most_ordered</code> column, so the most ordered product appears first.</li>
   <li>The <code>LIMIT 1</code> clause is used to restrict the result to only one row, effectively showing the most ordered product.</li>
-</ul>
+</ul><br>
 
-<li><h5>Which item was the most popular for each customer?</h5></li>
+<h5>5. Which item was the most popular for each customer?</h5>
 
 ```sql
 SELECT * FROM (
@@ -157,10 +156,9 @@ WHERE rnk = 1;
   <li>The <code>COUNT(product_name)</code> function calculates the number of occurrences of each product for each customer.</li>
   <li>The window function <code>DENSE_RANK()</code> assigns a rank to each product based on its count within each customer group, ordered by descending count.</li>
   <li>Finally, the outer query filters the results to include only rows where the rank is 1, indicating the most ordered product for each customer.</li>
-</ul>
+</ul><br>
 
-
-<li><h5></h5>Which item was purchased first by the customer after they became a member?</h5></li>
+<h5>6. Which item was purchased first by the customer after they became a member?</h5>
 
 ```sql
 SELECT s.customer_id, join_date, order_date, product_name 
@@ -180,9 +178,9 @@ ORDER BY customer_id;
   <li>It further joins the <code>sales</code> table with the <code>menu</code> table based on matching <code>product_id</code> to get the product name associated with each sale.</li>
   <li>The <code>WHERE</code> clause filters the results to include only rows where the order date is after the join date, ensuring that only orders placed after joining are included.</li>
   <li>The results are ordered by <code>customer_id</code> to organize the data in ascending order of customer IDs.</li>
-</ul>
+</ul><br>
 
-<li><h5>Which item was purchased just before the customer became a member?</h5></li>
+<h5>7. Which item was purchased just before the customer became a member?</h5>
 
 ```sql
 SELECT * FROM (
@@ -208,10 +206,9 @@ WHERE rnk = 1;
   <li>The <code>WHERE</code> clause filters the results to include only rows where the order date is before the join date, indicating the first order placed by each customer after joining.</li>
   <li>The inner query results are ordered by <code>customer_id</code> to organize the data in ascending order of customer IDs.</li>
   <li>Finally, the outer query filters the results to include only rows where the rank is 1, indicating the first order placed by each customer after joining.</li>
-</ul>
+</ul><br>
 
-
-<li><h5>What is the total items and amount spent for each member before they became a member?</h5></li>
+<h5>8. What is the total items and amount spent for each member before they became a member?</h5>
 
 ```sql
 SELECT s.customer_id, 
@@ -235,10 +232,9 @@ ORDER BY s.customer_id;
   <li>The <code>WHERE</code> clause filters the results to include only rows where the order date is before the join date, indicating purchases made before the customer joined.</li>
   <li>The results are grouped by <code>customer_id</code> to calculate aggregate values for each customer.</li>
   <li>Finally, the results are ordered by <code>customer_id</code> to organize the data in ascending order of customer IDs.</li>
-</ul>
+</ul><br>
 
-
-<li><h5>If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?</h5></li>
+<h5>9. If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?</h5>
 
 ```sql
 SELECT customer_id, 
@@ -273,10 +269,9 @@ ORDER BY customer_id;
   <li>The results of the subquery are then grouped by <code>customer_id</code>.</li>
   <li>Finally, the outer query calculates the sum of points for each customer by summing up the points earned from all their purchases.</li>
   <li>The results are then ordered by <code>customer_id</code> to organize the data in ascending order of customer IDs.</li>
-</ul>
+</ul><br>
 
-
-<li><h5>In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customers A and B have at the end of January?</h5></li>
+<h5>10. In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customers A and B have at the end of January?</h5>
 
 ```sql
 WITH dates_cte AS (
@@ -318,14 +313,12 @@ ORDER BY s.customer_id;
   <li>The results are grouped by <code>customer_id</code> to calculate the total points earned by each customer.</li>
   <li>Finally, the results are ordered by <code>customer_id</code> to organize the data in ascending order of customer IDs.</li>
 </ul>
-
-
 </ol>
 
 <h1><a name="bonusquestionsandsolutions">Bonus Questions & Solutions:</a></h1>
 
 <ol>
-<li><h5>Join All The Things</li></h5>
+<h5>1. Join All The Things</h5>
 
 ```sql
 SELECT s.customer_id, order_date, product_name, price, 
@@ -349,11 +342,9 @@ SELECT s.customer_id, order_date, product_name, price,
   <li>The <code>LEFT JOIN</code> with the <code>members</code> table ensures that all sales transactions are included in the result set, even if there is no corresponding entry in the <code>members</code> table for a particular customer.</li>
   <li>It then joins the <code>sales</code> table with the <code>menu</code> table based on matching <code>product_id</code> to retrieve details about the purchased products.</li>
   <li>The results are ordered by <code>customer_id</code> to organize the data in ascending order of customer IDs.</li>
-</ul>
+</ul><br>
 
-
-
-<li><h5>Rank All The Things</li></h5>
+<h5>2. Rank All The Things</h5>
 <p>Danny needs additional information about the ranking of customer products. However, he specifically requires null ranking values for non-member purchases, as he is not interested in ranking customers who are not yet part of the loyalty program.</p>
 
 ```sql
