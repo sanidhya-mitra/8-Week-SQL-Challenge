@@ -2,7 +2,7 @@
 
 ![Coding](https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/c69d49a0-ffd6-4cf1-b66f-1d1eb14f8549)
 
-## Contents
+# Contents:
 <ul>
   <li><a href="#introduction">Introduction</a></li>
   <li><a href="#problemstatement">Problem Statement</a></li>
@@ -13,10 +13,10 @@
 </ul>
 
 
-<h1><a name="introduction">Introduction</a></h1>
+<h1><a name="introduction">Introduction:</a></h1>
 <p> Danny pursues his passion for Japanese cuisine by opening "Danny's Diner," a delightful restaurant that serves sushi, curry, and ramen in early 2021. However, due to a lack of data analysis experience, the restaurant fails to make informed business decisions using the minimal data obtained during its first few months. Danny's Diner wants help using this data successfully to keep the restaurant growing.</p>
 
-<h1><a name="problemstatement">Problem Statement</a></h1>
+<h1><a name="problemstatement">Problem Statement:</a></h1>
 <p>Danny intends to use consumer data to obtain useful insights about their visit patterns, purchasing habits, and preferred menu options. By developing a stronger relationship with his consumers, he can create a more personalized experience for his loyal customers.
 
 He intends to use this information to make more informed judgments about expanding the current customer loyalty program. Danny also requests assistance creating simple datasets so that his staff can easily inspect the data without SQL experience.
@@ -29,11 +29,11 @@ The case study revolves around three key datasets:
 - Members</p>
 
 
-<h1><a name="entityrelationshipdiagram">Entity Relationship Diagram</a></h1>
+<h1><a name="entityrelationshipdiagram">Entity Relationship Diagram:</a></h1>
 <img width="500" alt="Coding" src="https://github.com/Mariyajoseph24/8_Week_SQL_challenge/assets/91487663/4bc1a02f-6fac-47f5-82c7-d9be65de1700">
 
 
-<h1><a name="casestudyquestionsandsolutions">Case Study Questions & Solutions</a></h1>
+<h1><a name="casestudyquestionsandsolutions">Case Study Questions & Solutions:</a></h1>
 
 <ol>
 
@@ -205,7 +205,7 @@ ORDER BY s.customer_id;
 
 </ol>
 
-<h1><a name="bonusquestionsandsolutions">Bonus Questions & Solutions</a></h1>
+<h1><a name="bonusquestionsandsolutions">Bonus Questions & Solutions:</a></h1>
 
 <ol>
 <li><h5>Join All The Things</li></h5>
@@ -252,7 +252,7 @@ FROM customers_data;
 
 </ol>
 
-  <h1><a name="keyinsights">Key Insights</a></h1>
+  <h1><a name="keyinsights">Key Insights:</a></h1>
 
 - **Customer Spending:** The amount spent by each customer at Danny's Diner fluctuates greatly. Some customers paid substantially more than others, indicating that they may be high-value customers or loyal clients.
 
