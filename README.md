@@ -1,7 +1,5 @@
 # 8 Week SQL Challenge
 
-## Introduction: 
-
 Welcome to my SQL journey! This repository showcases my SQL proficiency through a series of eight entertaining case studies titled the **#8WeekSQLChallenge**. Each case study provides a distinct problem-solving scenario that necessitates the use of various SQL approaches such as:
 
 - **CTEs (Common Table Expressions)**
