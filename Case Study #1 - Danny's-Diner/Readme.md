@@ -47,7 +47,7 @@ GROUP BY S.customer_id
 ORDER BY customer_id
 ```
 <h6>Answer:</h6>
-<img width="200" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Assets/Answer_1.png">
+<img width="200" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_1.png">
 
 <li><h5></h5>How many days has each customer visited the restaurant?</li></h5>
 <br>
@@ -57,7 +57,7 @@ SELECT customer_id, COUNT(DISTINCT order_date) AS 'No. of Days' FROM sales
 GROUP BY customer_id;
 ```
 <h6>Answer: </h6>
-<img width="200" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Assets/Answer_2.png">
+<img width="200" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_2.png">
 
 <li><h5>What was the first item from the menu purchased by each customer?</li></h5>
   
@@ -74,7 +74,7 @@ FROM CTE
 WHERE rank_num = 1;
 ```
 <h6>Answer: </h6>
-<img width="200" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Assets/Answer_3.png">
+<img width="200" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_3.png">
 
 <li><h5>What is the most purchased item on the menu and how many times was it purchased by all customers?</h5></li>
 
@@ -87,7 +87,7 @@ ORDER BY most_ordered DESC
 LIMIT 1; 
 ```
 <h6>Answer: </h6>
-<img width="200" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Assets/Answer_4.png">
+<img width="200" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_4.png">
 
 <li><h5>Which item was the most popular for each customer?</h5></li>
 
@@ -105,7 +105,7 @@ SELECT * FROM (
 WHERE rnk = 1;
 ```
 <h6>Answer: </h6>
-<img width="300" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Assets/Answer_5.png">
+<img width="300" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_5.png">
 
 <li><h5></h5>Which item was purchased first by the customer after they became a member?</h5></li>
 
@@ -118,7 +118,7 @@ WHERE order_date > join_date
 ORDER BY customer_id;
 ```
 <h6>Answer: </h6>
-<img width="300" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Assets/Answer_6.png">
+<img width="300" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_6.png">
 
 <li><h5>Which item was purchased just before the customer became a member?</h5></li>
 
@@ -135,7 +135,7 @@ SELECT * FROM (
 WHERE rnk = 1;
 ```
 <h6>Answer: </h6>
-<img width="300" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Assets/Answer_7.png">
+<img width="300" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_7.png">
 
 <li><h5>What is the total items and amount spent for each member before they became a member?</h5></li>
 
@@ -151,7 +151,7 @@ GROUP BY s.customer_id
 ORDER BY s.customer_id;
 ```
 <h6>Answer: </h6>
-<img width="300" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Assets/Answer_8.png">
+<img width="300" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_8.png">
 
 <li><h5>If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?</h5></li>
 
@@ -173,7 +173,7 @@ GROUP BY customer_id
 ORDER BY customer_id;
 ```
 <h6>Answer: </h6>
-<img width="200" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Assets/Answer_9.png">
+<img width="200" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_9.png">
 
 <li><h5>In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customers A and B have at the end of January?</h5></li>
 
@@ -201,7 +201,7 @@ GROUP BY s.customer_id
 ORDER BY s.customer_id;
 ```
 <h6>Answer: </h6>
-<img width="200" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Assets/Answer_10.png">
+<img width="200" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_10.png">
 
 </ol>
 
@@ -223,7 +223,7 @@ SELECT s.customer_id, order_date, product_name, price,
 ```
 
 <h6>Answer:</h6>
-<img width="400" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Assets/Answer_11.png">
+<img width="400" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_11.png">
 
 
 <li><h5>Rank All The Things</li></h5>
@@ -248,7 +248,7 @@ FROM customers_data;
 ```
 
 <h6>Answer:</h6>
-<img width="400" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Assets/Answer_12.png">
+<img width="400" alt="Coding" src="https://github.com/sanidhya-mitra/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20-%20Danny's-Diner/Assets/Answer_12.png">
 
 </ol>
 
